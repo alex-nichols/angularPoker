@@ -9,7 +9,7 @@ import { DeckService } from '../../services/deck.service'
 export class GameComponent implements OnInit {
 
   constructor(private _deck: DeckService) {
-    
+    _deck.deal(100).toArray().subscribe(x => console.log(JSON.stringify(x)))
   }
 
   ngOnInit() {

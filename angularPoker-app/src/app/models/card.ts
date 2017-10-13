@@ -5,8 +5,8 @@ export enum Suit {
     Clubs
 }
 
-export enum Pips {
-    One,
+export enum Pip {
+    Ace,
     Two,
     Three,
     Four,
@@ -22,7 +22,7 @@ export enum Pips {
 }
 
 export interface Card {
-    rank: number
+    rank: Pip
     suit: Suit
     image?: string
 }

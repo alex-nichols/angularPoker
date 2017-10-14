@@ -9,11 +9,11 @@ import { Card,
 
 @Injectable()
 export class DeckService {
-  public dealDelay: number = 75  
-  
+  public dealDelay = 75
+
   private dealer: Subject<Card> = new Subject();
   private deck: Card[] = []
-  private deckIdx: number = 0
+  private deckIdx = 0
 
   constructor(private _http: HttpClient) {
 
@@ -35,29 +35,28 @@ export class DeckService {
 
   public shuffle(): void {
      this.deck = ArrayUtil.shuffleInPlace(this.deck)
+     this.deckIdx = 0
   }
 
   public deal(count: number = 1): Observable<Card> {
     const delay = Observable.of(null).delay(this.dealDelay)
 
-    let iter = this.dealCard(count)
-    return Observable.from(iter as any)                
+    const iter = this.dealCard(count)
+    return Observable.from(iter as any)
                      .map(x => Observable.of(x).delay(this.dealDelay))
                      .concatAll()
-                     .do((card)=> this.deckIdx++)
-    
   }
 
   private *dealCard(count: number): IterableIterator<Card> {
 
-    for(let i = 0; i < count; ++i) {
+    for (let i = 0; i < count; ++i) {
+      yield this.deck[this.deckIdx]
+
       this.deckIdx = (this.deckIdx + 1) % this.deck.length
 
-      if(this.deckIdx === 0) {
+      if (this.deckIdx === 0) {
         this.shuffle()
       }
-
-      yield this.deck[this.deckIdx]
     }
   }
 

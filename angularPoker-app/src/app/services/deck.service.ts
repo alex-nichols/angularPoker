@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs/Rx';
+import { Subject } from 'rxjs/Rx';
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http' 
 import { ArrayUtil } from '../util/array.util'
@@ -9,12 +10,13 @@ import { Card,
 @Injectable()
 export class DeckService {
   public dealDelay: number = 75  
-
+  
+  private dealer: Subject<Card> = new Subject();
   private deck: Card[] = []
   private deckIdx: number = 0
 
   constructor(private _http: HttpClient) {
-    
+
   }
 
   private logCardCombinations(): void {
@@ -37,13 +39,26 @@ export class DeckService {
 
   public deal(count: number = 1): Observable<Card> {
     const delay = Observable.of(null).delay(this.dealDelay)
-    return Observable.from(this.deck)
-                     .skip(this.deckIdx)                 
-                     .take(count)                 
+
+    let iter = this.dealCard(count)
+    return Observable.from(iter as any)                
                      .map(x => Observable.of(x).delay(this.dealDelay))
                      .concatAll()
                      .do((card)=> this.deckIdx++)
     
+  }
+
+  private *dealCard(count: number): IterableIterator<Card> {
+
+    for(let i = 0; i < count; ++i) {
+      this.deckIdx = (this.deckIdx + 1) % this.deck.length
+
+      if(this.deckIdx === 0) {
+        this.shuffle()
+      }
+
+      yield this.deck[this.deckIdx]
+    }
   }
 
   private printCard(x: Card) {

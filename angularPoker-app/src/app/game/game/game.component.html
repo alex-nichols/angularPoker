@@ -3,9 +3,7 @@
     <button (click)="deal()" *ngIf='loaded'>Deal</button>
 <ul class='hand'>
     <li *ngFor="let card of hand" class="card">
-        
-            <img src='{{card.image}}' class='front'>
-        
+        <app-card [frontImgUrl]=' card.image ' [backImgUrl]='"/assets/cards/back.png"' ></app-card>
     </li>
 </ul>
 </div>

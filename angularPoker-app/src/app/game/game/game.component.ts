@@ -3,10 +3,12 @@ import { Observable } from 'rxjs/observable'
 
 
 import { Card } from '../../models/card'
+import { CardComponent } from '../card/card.component'
 import { DeckService } from '../../services/deck.service'
 
 @Component({
   selector: 'app-game',
+  
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })

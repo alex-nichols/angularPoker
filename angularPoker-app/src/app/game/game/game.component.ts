@@ -14,13 +14,9 @@ export class GameComponent implements OnInit {
   public hand: Card[] = []
   public loaded: Boolean = false
   
-  constructor(private _deck: DeckService) {
-    
-      //.subscribe(() => this.hand = _deck.deal(100).toArray())
-    //_deck.deal(100).toArray().subscribe(x => console.log(JSON.stringify(x)))
-  }
+  constructor(private _deck: DeckService) { }
 
-  public deal(count:number = 5) {
+  public deal(count:number = 51) {
     this._deck.deal(count).subscribe(card => {
       this.hand.push(card)
     })

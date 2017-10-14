@@ -1,0 +1,19 @@
+.card {
+    margin: 0 10px 0 10px;
+    flex-grow: 0;
+}
+
+
+.hand {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+}
+
+.front {
+    border: 2px;
+    border-style: solid;
+    max-width: 100%;
+    max-height: 100%;
+}

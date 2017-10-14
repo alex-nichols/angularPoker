@@ -1,3 +1,11 @@
-<p>
-  game works!
-</p>
+
+<div>
+    <button (click)="deal()" *ngIf='loaded'>Deal</button>
+<ul class='hand'>
+    <li *ngFor="let card of hand" class="card">
+        
+            <img src='{{card.image}}' class='front'>
+        
+    </li>
+</ul>
+</div>

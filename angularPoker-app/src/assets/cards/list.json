@@ -1,58 +1,262 @@
 [
-    "10_of_clubs.png",
-    "2_of_hearts.png",
-    "4_of_clubs.png",
-    "5_of_hearts.png",
-    "7_of_clubs.png",
-    "8_of_hearts.png",
-    "ace_of_clubs.png",
-    "black_joker.png",
-    "king_of_diamonds.png",
-    "queen_of_hearts.png",
-    "10_of_diamonds.png",
-    "2_of_spades.png",
-    "4_of_diamonds.png",
-    "5_of_spades.png",
-    "7_of_diamonds.png",
-    "8_of_spades.png",
-    "ace_of_diamonds.png",
-    "jack_of_clubs.png",
-    "king_of_hearts.png",
-    "queen_of_spades.png",
-    "10_of_hearts.png",
-    "3_of_clubs.png",
-    "4_of_hearts.png",
-    "6_of_clubs.png",
-    "7_of_hearts.png",
-    "9_of_clubs.png",
-    "ace_of_hearts.png",
-    "jack_of_diamonds.png",
-    "king_of_spades.png",
-    "red_joker.png",
-    "10_of_spades.png",
-    "3_of_diamonds.png",
-    "4_of_spades.png",
-    "6_of_diamonds.png",
-    "7_of_spades.png",
-    "9_of_diamonds.png",
-    "ace_of_spades.png",
-    "jack_of_hearts.png",
-    "2_of_clubs.png",
-    "3_of_hearts.png",
-    "5_of_clubs.png",
-    "6_of_hearts.png",
-    "8_of_clubs.png",
-    "9_of_hearts.png",
-    "back.png",
-    "jack_of_spades.png",
-    "queen_of_clubs.png",
-    "2_of_diamonds.png",
-    "3_of_spades.png",
-    "5_of_diamonds.png",
-    "6_of_spades.png",
-    "8_of_diamonds.png",
-    "9_of_spades.png",
-    "back@2x.png",
-    "king_of_clubs.png",
-    "queen_of_diamonds.png"
-  ]
+  {
+    "suit": 0,
+    "rank": 0,
+    "image": "/assets/cards/ace_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 1,
+    "image": "/assets/cards/2_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 2,
+    "image": "/assets/cards/3_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 3,
+    "image": "/assets/cards/4_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 4,
+    "image": "/assets/cards/5_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 5,
+    "image": "/assets/cards/6_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 6,
+    "image": "/assets/cards/7_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 7,
+    "image": "/assets/cards/8_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 8,
+    "image": "/assets/cards/9_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 9,
+    "image": "/assets/cards/10_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 10,
+    "image": "/assets/cards/jack_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 11,
+    "image": "/assets/cards/queen_of_spades.png"
+  },
+  {
+    "suit": 0,
+    "rank": 12,
+    "image": "/assets/cards/king_of_spades.png"
+  },
+  {
+    "suit": 1,
+    "rank": 0,
+    "image": "/assets/cards/ace_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 1,
+    "image": "/assets/cards/2_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 2,
+    "image": "/assets/cards/3_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 3,
+    "image": "/assets/cards/4_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 4,
+    "image": "/assets/cards/5_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 5,
+    "image": "/assets/cards/6_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 6,
+    "image": "/assets/cards/7_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 7,
+    "image": "/assets/cards/8_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 8,
+    "image": "/assets/cards/9_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 9,
+    "image": "/assets/cards/10_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 10,
+    "image": "/assets/cards/jack_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 11,
+    "image": "/assets/cards/queen_of_diamonds.png"
+  },
+  {
+    "suit": 1,
+    "rank": 12,
+    "image": "/assets/cards/king_of_diamonds.png"
+  },
+  {
+    "suit": 2,
+    "rank": 0,
+    "image": "/assets/cards/ace_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 1,
+    "image": "/assets/cards/2_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 2,
+    "image": "/assets/cards/3_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 3,
+    "image": "/assets/cards/4_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 4,
+    "image": "/assets/cards/5_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 5,
+    "image": "/assets/cards/6_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 6,
+    "image": "/assets/cards/7_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 7,
+    "image": "/assets/cards/8_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 8,
+    "image": "/assets/cards/9_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 9,
+    "image": "/assets/cards/10_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 10,
+    "image": "/assets/cards/jack_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 11,
+    "image": "/assets/cards/queen_of_hearts.png"
+  },
+  {
+    "suit": 2,
+    "rank": 12,
+    "image": "/assets/cards/king_of_hearts.png"
+  },
+  {
+    "suit": 3,
+    "rank": 0,
+    "image": "/assets/cards/ace_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 1,
+    "image": "/assets/cards/2_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 2,
+    "image": "/assets/cards/3_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 3,
+    "image": "/assets/cards/4_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 4,
+    "image": "/assets/cards/5_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 5,
+    "image": "/assets/cards/6_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 6,
+    "image": "/assets/cards/7_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 7,
+    "image": "/assets/cards/8_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 8,
+    "image": "/assets/cards/9_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 9,
+    "image": "/assets/cards/10_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 10,
+    "image": "/assets/cards/jack_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 11,
+    "image": "/assets/cards/queen_of_clubs.png"
+  },
+  {
+    "suit": 3,
+    "rank": 12,
+    "image": "/assets/cards/king_of_clubs.png"
+  }
+]

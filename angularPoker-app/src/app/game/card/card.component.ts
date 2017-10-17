@@ -14,10 +14,16 @@ import {
   styleUrls: ['./card.component.css'],
   animations: [
     trigger('slideIn', [
-      state('in', style({transform: 'translateX(0)'})),
+      state('in', style({
+        transform: 'translate(0, 0)',
+        opacity: 1
+      })),
       transition('void => *', [
-        style({transform: 'translateX(-100%)'}),
-        animate('100ms 0s ease-out')
+        style({
+          transform: 'translate(-400%, -200%)',
+          opacity: '0'
+        }),
+        animate('750ms 0s ease-out')
       ])
     ])
   ]

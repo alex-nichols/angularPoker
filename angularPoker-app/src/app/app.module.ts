@@ -8,13 +8,15 @@ import { GameService } from './services/game.service'
 
 import { AppComponent } from './app.component'
 import { GameComponent } from './game/game/game.component';
-import { CardComponent } from './game/card/card.component'
+import { CardComponent } from './game/card/card.component';
+import { DebounceClickDirective } from './directives/debounce-click.directive'
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    CardComponent
+    CardComponent,
+    DebounceClickDirective
   ],
   imports: [
     BrowserModule,

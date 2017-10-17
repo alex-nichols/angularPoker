@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Rx';
 import { Subject } from 'rxjs/Rx';
 import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http' 
+import { HttpClient } from '@angular/common/http'
 import { ArrayUtil } from '../util/array.util'
 import { Card,
          Suit,
@@ -9,9 +9,6 @@ import { Card,
 
 @Injectable()
 export class DeckService {
-  public dealDelay = 75
-
-  private dealer: Subject<Card> = new Subject();
   private deck: Card[] = []
   private deckIdx = 0
 
@@ -39,12 +36,7 @@ export class DeckService {
   }
 
   public deal(count: number = 1): Observable<Card> {
-    const delay = Observable.of(null).delay(this.dealDelay)
-
-    const iter = this.dealCard(count)
-    return Observable.from(iter as any)
-                     .map(x => Observable.of(x).delay(this.dealDelay))
-                     .concatAll()
+    return Observable.from(this.dealCard(count) as any)
   }
 
   private *dealCard(count: number): IterableIterator<Card> {

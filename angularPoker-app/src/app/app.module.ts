@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core'
+import { StoreModule } from '@ngrx/store';
+
+import { store } from './store/store'
 
 import { DeckService } from './services/deck.service'
 import { GameService } from './services/game.service'
@@ -21,7 +24,8 @@ import { DebounceClickDirective } from './directives/debounce-click.directive'
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot(store)
   ],
   providers: [
     GameService,

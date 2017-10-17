@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/observable'
+import { Observable } from 'rxjs/Observable'
 
 
 import { Card } from '../../models/card'
@@ -15,19 +15,23 @@ export class GameComponent implements OnInit {
   public hand: Card[] = []
   public loaded: Boolean = false
   public isDisabled: Boolean = false
+  public dealDelay = 75
 
   constructor(private _deck: DeckService) { }
 
   public deal(count: number = 51) {
     this.isDisabled = true
-    this._deck.deal(count).subscribe(
-      card => {
-        this.hand.push(card)
-      },
+
+    const delay = Observable.of(null).delay(this.dealDelay)
+
+    this._deck.deal(count)
+      .map(x => Observable.of(x).delay(this.dealDelay))
+      .concatAll()
+      .subscribe(
+      card => { this.hand.push(card) },
       null, // no error handling
-      () => {
-        this.isDisabled = false
-      })
+      () => { this.isDisabled = false})
+
   }
 
   ngOnInit() {

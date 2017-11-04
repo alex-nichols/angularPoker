@@ -1,23 +1,49 @@
-import { All } from 'tslint/lib/rules/completedDocsRule';
 import { Action } from '@ngrx/store'
+import { Card } from '../models/card'
 
-export const LOAD = 'DECK_LOAD'
-export const SHUFFLE = 'DECK_SHUFFLE'
-export const DEAL = 'DECK_DEAL'
+export const types = {
+    LOAD: 'DECK_LOAD',
+    LOADED: 'DECK_LOADED',
+    SHUFFLE: 'DECK_SHUFFLE',
+    SHUFFLE_COMPLETE: 'DECK_SHUFFLE_COMPLETE',
+    DEAL: 'DECK_DEAL',
+    REQUEST_CARDS: 'DECK_REQUEST_CARD'
+}
+
 
 export class Load implements Action {
-    readonly type = LOAD
+    readonly type = types.LOAD
+}
+
+export class Loaded implements Action {
+    readonly type = types.LOADED
+    constructor(public deck: Card[]) { }
 }
 
 export class Shuffle implements Action {
-    readonly type = SHUFFLE
+    readonly type = types.SHUFFLE
+}
+
+export class ShuffleComplete implements Action {
+    readonly type = types.SHUFFLE_COMPLETE
+}
+
+export class RequestCards implements Action {
+    readonly type = types.REQUEST_CARDS
+
+    constructor(public payload: number) { }
 }
 
 export class Deal implements Action {
-    readonly type = DEAL
+    readonly type = types.DEAL
+
+    constructor(public card: Card) { }
 }
 
-export type All
+export type actions
     = Load
     | Shuffle
     | Deal
+    | Loaded
+    | ShuffleComplete
+    | RequestCards

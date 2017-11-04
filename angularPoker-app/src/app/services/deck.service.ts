@@ -25,14 +25,20 @@ export class DeckService {
   }
 
   public LoadDeck(): Observable<Card[]> {
-   return this._http.get<Card[]>('/assets/cards/list.json')
-                    .do
-                    (cards => this.deck = cards)
+
+    if (this.deck.length > 0) {
+      return Observable.of(this.deck)
+    }
+
+    return this._http.get<Card[]>('/assets/cards/list.json')
+                     .do(cards => this.deck = cards)
   }
 
-  public shuffle(): void {
-     this.deck = ArrayUtil.shuffleInPlace(this.deck)
+  public shuffle(deck: Card[]): Card[] {
+     let deckCopy = deck.slice()
+     deckCopy = ArrayUtil.shuffleInPlace(deckCopy)
      this.deckIdx = 0
+     return deckCopy
   }
 
   public deal(count: number = 1): Observable<Card> {
@@ -47,7 +53,7 @@ export class DeckService {
       this.deckIdx = (this.deckIdx + 1) % this.deck.length
 
       if (this.deckIdx === 0) {
-        this.shuffle()
+        this.deck = this.shuffle(this.deck)
       }
     }
   }

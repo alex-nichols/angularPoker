@@ -2,7 +2,7 @@
 <div>
     <button (click)="deal()" *ngIf='loaded' [disabled]='isDisabled'>Deal</button>
 <ul class='hand'>
-    <li *ngFor="let card of hand" class="card">
+    <li *ngFor="let card of dealtCards | async" class="card">
         <app-card [frontImgUrl]=' card.image ' [backImgUrl]='"/assets/cards/back.png"' ></app-card>
     </li>
 </ul>

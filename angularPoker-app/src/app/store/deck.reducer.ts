@@ -1,18 +1,25 @@
-import { Action } from '@ngrx/store'
-
+import { Action, createSelector } from '@ngrx/store'
+import { AppState } from './store'
 import * as DeckActions from './deck.action'
 import { Card } from '../models/card'
 import { ArrayUtil } from '../util/array.util'
 
 
-export class DeckState {
-    deckIndex: 0
-    deck: Card[] = []
-    dealtCards: Card[] = []
-    loaded = false
+export interface DeckState {
+    deckIndex: number
+    deck: Card[]
+    dealtCards: Card[]
+    loaded: boolean
 }
 
-export function deckReducer(state: DeckState = new DeckState(), action: DeckActions.actions): DeckState {
+const initialState: DeckState = {
+    deckIndex: 0,
+    deck: [],
+    dealtCards: [],
+    loaded: false
+}
+
+export function reducer(state: DeckState = initialState, action: DeckActions.Actions): DeckState {
     switch (action.type) {
         case DeckActions.types.LOAD: {
             return state
@@ -26,7 +33,7 @@ export function deckReducer(state: DeckState = new DeckState(), action: DeckActi
         }
         case DeckActions.types.DEAL: {
             const temp = action as DeckActions.Deal
-            return {...state, dealtCards: [...state.dealtCards, temp.card]}
+            return {...state, dealtCards: state.dealtCards.slice().concat(temp.cards)}
         }
         case DeckActions.types.SHUFFLE: {
             return state //{...state, deck: ArrayUtil.shuffleInPlace(state.deck)}
@@ -37,4 +44,4 @@ export function deckReducer(state: DeckState = new DeckState(), action: DeckActi
     }
 }
 
-export const dealtCards = (state: DeckState) => state.dealtCards
+export const dealtCards = (state: AppState) => state.deck.dealtCards

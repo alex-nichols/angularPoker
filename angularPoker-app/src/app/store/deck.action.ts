@@ -37,10 +37,10 @@ export class RequestCards implements Action {
 export class Deal implements Action {
     readonly type = types.DEAL
 
-    constructor(public card: Card) { }
+    constructor(public cards: Card[]) { }
 }
 
-export type actions
+export type Actions
     = Load
     | Shuffle
     | Deal

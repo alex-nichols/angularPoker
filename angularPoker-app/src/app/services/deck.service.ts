@@ -41,9 +41,14 @@ export class DeckService {
      return deckCopy
   }
 
-  public deal(count: number = 1): Observable<Card> {
+  public deal(count: number = 1): Observable<Card[]> {
+    // return Observable.from(this.dealCard(count) as any)
+
     return Observable.from(this.dealCard(count) as any)
+            .bufferWhen(() => Observable.interval(2000)) as Observable<Card[]>
   }
+
+  // private dealCards(count: number): Observable<Card[]>
 
   private *dealCard(count: number): IterableIterator<Card> {
 

@@ -1,13 +1,13 @@
 
-import { deckReducer, DeckState } from './deck.reducer'
+import * as DeckReducers from './deck.reducer'
 import { DeckEffects } from './deck.effects'
 
 export const store = {
-        deck: deckReducer
+        deck: DeckReducers.reducer
     }
 
 export const effects = [DeckEffects]
 
 export interface AppState {
-    deck: DeckState
+    deck: DeckReducers.DeckState
 }

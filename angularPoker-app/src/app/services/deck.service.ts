@@ -31,7 +31,9 @@ export class DeckService {
     }
 
     return this._http.get<Card[]>('/assets/cards/list.json')
-                     .do(cards => this.deck = cards)
+                     .do(cards => {
+                       this.deck = this.shuffle(cards)
+                      })
   }
 
   public shuffle(deck: Card[]): Card[] {
@@ -43,9 +45,9 @@ export class DeckService {
 
   public deal(count: number = 1): Observable<Card[]> {
     // return Observable.from(this.dealCard(count) as any)
-
-    return Observable.from(this.dealCard(count) as any)
-            .bufferWhen(() => Observable.interval(2000)) as Observable<Card[]>
+    const cards = Array.from(this.dealCard(count))
+    return Observable.of(cards)
+            //.bufferWhen(() => Observable.interval(90000)) as Observable<Card[]>
   }
 
   // private dealCards(count: number): Observable<Card[]>

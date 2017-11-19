@@ -18,15 +18,6 @@ export class DeckEffects {
     constructor(private _deckService: DeckService,
                 private _actions$: Actions) { }
 
-    // @Effect()
-    // load$: Observable<Action> = this._actions$.ofType(DeckActions.LOAD)
-    //     .mergeMap(action =>
-    //         this._deckService.LoadDeck()
-    //             .map(cards => ({type: 'DECK_LOADED', payload: cards}))
-    //             .catch(() => of({type: 'DECK_LOAD_FAILED'})
-    //         )
-    //     )
-
     @Effect()
     load$: Observable<Action> = this._actions$.ofType(DeckActions.types.LOAD)
         .mergeMap(action =>
@@ -40,17 +31,6 @@ export class DeckEffects {
                 .catch(() => of({type: 'DECK_LOAD_FAILED'})
             )
         )
-
-    // @Effect()
-    // load$: Observable<Action> = this._actions$.ofType(DeckActions.LOAD)
-    //     .mergeMap(action =>
-    //         this._deckService.LoadDeck()
-    //             .flatMap(cards => [
-    //             {type: DeckActions.LOADED, payload: cards}, // TODO: hmm.. this isn't firing
-    //              {type: DeckActions.SHUFFLE}])
-    //             .catch(() => of({type: 'DECK_LOAD_FAILED'})
-    //         )
-    //     )
 
     @Effect()
     requestCards$: Observable<Action> = this._actions$.ofType<DeckActions.RequestCards>(DeckActions.types.REQUEST_CARDS)

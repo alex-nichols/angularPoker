@@ -20,7 +20,10 @@ export class DeckService {
     const suits = Observable.range(0, 4)
     const cards = Observable.range(0, 13)
     suits.subscribe(suit => cards.subscribe(
-      rank => this.deck.push({suit, rank, image: `/assets/${rank + 1}_of_${Suit[suit]}`}) )
+      rank => this.deck.push({ suit, 
+                               rank, 
+                               image: `/assets/${rank + 1}_of_${Suit[suit]}`,
+                               isSelected: false}) )
     )
   }
 

@@ -1,9 +1,11 @@
 
 <div>
-    <button (click)="deal()" *ngIf='loaded' [disabled]='isDisabled'>Deal</button>
+    <button (click)="playerReady()" *ngIf='loaded' [disabled]='isDisabled'>Ready</button>
+    <button (click)="commitDiscard()" >Discard</button>
+
 <ul class='hand' [@listAnimation]="(dealtCards | async).length">
     <li *ngFor="let card of dealtCards | async" class="card">
-        <app-card [frontImgUrl]=' card.image ' [backImgUrl]='"/assets/cards/back.png"' ></app-card>
+        <app-card [frontImgUrl]=' card.image ' [backImgUrl]='"/assets/cards/back.png"' [isSelcted]='card.isSelected' ></app-card>
     </li>
 </ul>
 </div>

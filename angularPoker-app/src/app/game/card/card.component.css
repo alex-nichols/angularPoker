@@ -11,3 +11,9 @@ img {
     border: 1px;
     border-style: solid;
 }
+
+.selectedCard {
+    border: 5px;
+    border-style: solid;
+    border-color: red;
+}

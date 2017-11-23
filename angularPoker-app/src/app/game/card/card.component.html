@@ -1,8 +1,9 @@
 <div class='card' 
      [@slideIn]=''
      (@slideIn.done)='slideInDone()'>
-  <img src='{{backImgUrl}}' *ngIf="!isFaceUp" />
-  <img src='{{frontImgUrl}}' *ngIf="isFaceUp" />
-  
+  <div [ngClass]="{'selectedCard': isSelected}">
+    <img src="{{backImgUrl}}" *ngIf="!isFaceUp" />
+    <img src="{{frontImgUrl}}" *ngIf="isFaceUp" />
+  </div>
   {{name}}
 </div>

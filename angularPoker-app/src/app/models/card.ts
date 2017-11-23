@@ -25,4 +25,5 @@ export interface Card {
     rank: Pip
     suit: Suit
     image?: string
+    isSelected: boolean
 }

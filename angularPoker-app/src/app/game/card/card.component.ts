@@ -31,6 +31,7 @@ import {
 export class CardComponent implements OnInit {
   @Input() public frontImgUrl: string
   @Input() public backImgUrl: string
+  @Input() public isSelected: boolean
   @Input() public name: string
 
   public isFaceUp = false;

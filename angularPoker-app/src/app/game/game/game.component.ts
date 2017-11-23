@@ -8,7 +8,9 @@ import * as DeckActions from '../../store/deck.action';
 import { Card } from '../../models/card'
 import { CardComponent } from '../card/card.component'
 import { DeckService } from '../../services/deck.service'
-import * as DeckReducer from '../../store/deck.reducer';
+//import * as DeckReducer from '../../store/deck.reducer';
+import * as GameReducer  from '../../store/game/game.reducer'
+import * as GameActions from '../../store/game/game.action'
 
 // very cool list animation from: https://coursetro.com/posts/code/78/Creating-Stagger-Animations-in-Angular-4
 
@@ -32,32 +34,35 @@ import * as DeckReducer from '../../store/deck.reducer';
   ]
 })
 export class GameComponent implements OnInit {
-  public hand: Card[]
-  public dealtCards: Observable<Card[]>
+  public playerCards$: Observable<Card[]>
+  public gameId$: Observable<string>
+
   public loaded: Observable<boolean>
   public isDisabled: Boolean = false
   public dealDelay = 75
+  public gameId: string
 
   constructor(private _deck: DeckService,
               private _store: Store<AppState>) {
     this.loaded = _store.select(state => state.deck.loaded)
-    // this was ill concieved. I should just let the renderer deal with this
-    // this.dealtCards =  _store.select(DeckReducer.dealtCards)
-    //                   .do(x => this.isDisabled = false)
-    //                   .concatMap(x => x) // split the array, however this works.. i'm so confused
-    //                   .map(x => Observable.of(x).delay(this.dealDelay)) // create delay
-    //                   .concatAll() // concat delay and cards
-    //                   .scan((acc, value) => { // collect the cards into an array and emit
-    //                     acc.push(value)
-    //                     return acc
-    //                   }, [])
-    this.dealtCards = _store.select(DeckReducer.dealtCards)
-                        .do(x => this.isDisabled = false)
+    // todo: unsubscribe?
+    this.playerCards$ = _store.select(GameReducer.playerOne)
+                        .pluck('hand')
+    this.gameId$ = _store.select(GameReducer.gameId)
+                    .do(x => this.gameId = x)
   }
 
-  public deal(count: number = 5) {
-    this.isDisabled = true
-    this._store.dispatch(new DeckActions.RequestCards(count))
+  public playerReady() {
+    this._store.dispatch(new GameActions.PlayerReady(this.gameId))
+  }
+
+  public selectCard(card:Card) {
+    this._store.dispatch(new GameActions.PlayerSelectCard(this.gameId, card, !card.isSelected))
+  }
+
+  public commitDiscard() {
+    const selectedCards = 
+    this._store.dispatch(new GameActions.PlayerDiscardCards(this.gameId))
   }
 
   ngOnInit() {

@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { DeckService } from './services/deck.service';
 import { StoreModule } from '@ngrx/store';
-import { store, effects, featureName } from './store/store';
+import { effects } from './store/store';
+import * as deckReducers from './store/deck.reducer'
 import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature(featureName, store),
+    StoreModule.forFeature(deckReducers.featureName, deckReducers.reducer),
     EffectsModule.forFeature(effects)
   ],
   declarations: [

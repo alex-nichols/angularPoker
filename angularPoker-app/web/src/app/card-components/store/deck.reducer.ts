@@ -1,5 +1,4 @@
 import { Action, createSelector, createFeatureSelector } from '@ngrx/store'
-import { DeckStore } from './store'
 import * as DeckActions from './deck.action'
 import { Card } from '../models/card';
 
@@ -41,3 +40,9 @@ export function reducer(state: DeckState = initialState, action: DeckActions.Act
         }
     }
 }
+
+export const featureName = 'cardComponent'
+export const selectFeature = createFeatureSelector<DeckState>(featureName)
+export const dealtCards = createSelector(selectFeature, (state: DeckState) => state.dealtCards)
+export const loaded = createSelector(selectFeature, (state: DeckState) => state.loaded)
+

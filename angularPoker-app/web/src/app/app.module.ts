@@ -10,9 +10,9 @@ import { AppComponent } from './app.component'
 import { CommonUiModule } from './common-ui/common-ui.module';
 import { CardComponentsModule } from './card-components/card-components.module'
 import { TestGameModule } from './test-game/test-game.module';
-import { store, effects } from './store/store';
 import { reducers } from './store/reducers';
- 
+import { effects } from './card-components/store/store';
+
 @NgModule({
   declarations: [
     AppComponent

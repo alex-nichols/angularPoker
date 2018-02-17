@@ -6,35 +6,28 @@ import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 
-import { store, effects } from './store/store'
-
-import { DeckService } from './services/deck.service'
-import { GameService } from './services/game.service'
-
 import { AppComponent } from './app.component'
-import { GameComponent } from './game/game/game.component'
-import { CardComponent } from './game/card/card.component'
-import { DebounceClickDirective } from './directives/debounce-click.directive'
+import { CommonUiModule } from './common-ui/common-ui.module';
+import { TestGameModule } from './test-game/test-game.module';
+import { reducers } from './store/reducers';
+import { DeckModule } from './deck/deck.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GameComponent,
-    CardComponent,
-    DebounceClickDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot(store),
-    EffectsModule.forRoot(effects),
-    StoreDevtoolsModule.instrument({maxAge: 25})
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({maxAge: 25}),
+    CommonUiModule,
+    TestGameModule,
+    DeckModule
   ],
-  providers: [
-    GameService,
-    DeckService
-  ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

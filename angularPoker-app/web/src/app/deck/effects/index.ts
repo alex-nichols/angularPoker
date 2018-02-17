@@ -8,10 +8,10 @@ import { Observable } from 'rxjs/Observable'
 import { Action } from '@ngrx/store'
 import { Actions, Effect } from '@ngrx/effects'
 import { of } from 'rxjs/observable/of'
-import { DeckService } from '../services/deck.service'
 
-import * as DeckActions from './deck.action'
-import { Card } from '../models/card'
+import * as DeckActions from '../actions'
+import { DeckService } from '../services/deck.service';
+
 
 @Injectable()
 export class DeckEffects {

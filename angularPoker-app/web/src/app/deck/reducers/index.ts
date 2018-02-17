@@ -1,9 +1,6 @@
-import { Action, createSelector } from '@ngrx/store'
-import { AppState } from './store'
-import * as DeckActions from './deck.action'
-import { Card } from '../models/card'
-import { ArrayUtil } from '../util/array.util'
-
+import { Action, createSelector, createFeatureSelector } from '@ngrx/store'
+import * as DeckActions from '../actions'
+import { Card } from '../models/card';
 
 export interface DeckState {
     deckIndex: number
@@ -36,7 +33,7 @@ export function reducer(state: DeckState = initialState, action: DeckActions.Act
             return {...state, dealtCards: state.dealtCards.slice().concat(temp.cards)}
         }
         case DeckActions.types.SHUFFLE: {
-            return state //{...state, deck: ArrayUtil.shuffleInPlace(state.deck)}
+            return state // {...state, deck: ArrayUtil.shuffleInPlace(state.deck)}
         }
         default: {
             return state
@@ -44,4 +41,8 @@ export function reducer(state: DeckState = initialState, action: DeckActions.Act
     }
 }
 
-export const dealtCards = (state: AppState) => state.deck.dealtCards
+export const featureName = 'cardComponent'
+export const selectFeature = createFeatureSelector<DeckState>(featureName)
+export const dealtCards = createSelector(selectFeature, (state: DeckState) => state.dealtCards)
+export const loaded = createSelector(selectFeature, (state: DeckState) => state.loaded)
+

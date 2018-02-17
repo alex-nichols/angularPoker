@@ -5,10 +5,9 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
 
 import { AppState } from '../../store/store'
 import * as DeckActions from '../../store/deck.action';
-import { Card } from '../../models/card'
-import { CardComponent } from '../card/card.component'
-import { DeckService } from '../../services/deck.service'
 import * as DeckReducer from '../../store/deck.reducer';
+import { Card } from '../../card-components/models/card';
+import { DeckService } from '../../card-components/services/deck.service';
 
 // very cool list animation from: https://coursetro.com/posts/code/78/Creating-Stagger-Animations-in-Angular-4
 

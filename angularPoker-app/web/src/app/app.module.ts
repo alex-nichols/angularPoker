@@ -8,20 +8,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 
 import { store, effects } from './store/store'
 
-import { DeckService } from './services/deck.service'
-import { GameService } from './services/game.service'
-
 import { AppComponent } from './app.component'
-import { GameComponent } from './game/game/game.component'
-import { CardComponent } from './game/card/card.component'
-import { DebounceClickDirective } from './directives/debounce-click.directive'
-
+import { CommonUiModule } from './common-ui/common-ui.module';
+import { CardComponentsModule } from './card-components/card-components.module'
+import { TestGameModule } from './test-game/test-game.module';
+ 
 @NgModule({
   declarations: [
-    AppComponent,
-    GameComponent,
-    CardComponent,
-    DebounceClickDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -29,12 +23,12 @@ import { DebounceClickDirective } from './directives/debounce-click.directive'
     BrowserAnimationsModule,
     StoreModule.forRoot(store),
     EffectsModule.forRoot(effects),
-    StoreDevtoolsModule.instrument({maxAge: 25})
+    StoreDevtoolsModule.instrument({maxAge: 25}),
+    CommonUiModule,
+    TestGameModule,
+    CardComponentsModule
   ],
-  providers: [
-    GameService,
-    DeckService
-  ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { } 

@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Rx';
 import { Subject } from 'rxjs/Rx';
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { ArrayUtil } from '../util/array.util'
+import { ArrayUtil } from '../../util/array.util'
 import { Card,
          Suit,
          Pip } from '../models/card'
@@ -47,7 +47,7 @@ export class DeckService {
     // return Observable.from(this.dealCard(count) as any)
     const cards = Array.from(this.dealCard(count))
     return Observable.of(cards)
-            //.bufferWhen(() => Observable.interval(90000)) as Observable<Card[]>
+            // .bufferWhen(() => Observable.interval(90000)) as Observable<Card[]>
   }
 
   // private dealCards(count: number): Observable<Card[]>

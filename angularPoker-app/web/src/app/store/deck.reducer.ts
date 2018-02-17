@@ -1,8 +1,11 @@
 import { Action, createSelector } from '@ngrx/store'
 import { AppState } from './store'
 import * as DeckActions from './deck.action'
-import { Card } from '../models/card'
+
 import { ArrayUtil } from '../util/array.util'
+
+// TODO: This needs to move to card-components
+import { Card } from '../card-components/models/card';
 
 
 export interface DeckState {
@@ -36,7 +39,7 @@ export function reducer(state: DeckState = initialState, action: DeckActions.Act
             return {...state, dealtCards: state.dealtCards.slice().concat(temp.cards)}
         }
         case DeckActions.types.SHUFFLE: {
-            return state //{...state, deck: ArrayUtil.shuffleInPlace(state.deck)}
+            return state // {...state, deck: ArrayUtil.shuffleInPlace(state.deck)}
         }
         default: {
             return state

@@ -9,7 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { AppComponent } from './app.component'
 import { CommonUiModule } from './common-ui/common-ui.module';
 import { TestGameModule } from './test-game/test-game.module';
-import { reducers } from './store/reducers';
+import { reducers } from './reducers';
 import { DeckModule } from './deck/deck.module';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { DeckModule } from './deck/deck.module';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({maxAge: 25}),
     CommonUiModule,
-    TestGameModule,
+    TestGameModule, 
     DeckModule
   ],
   providers: [ ],

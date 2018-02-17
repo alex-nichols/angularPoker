@@ -1,5 +1,5 @@
 import { Action, createSelector, createFeatureSelector } from '@ngrx/store'
-import * as DeckActions from './deck.action'
+import * as DeckActions from '../actions'
 import { Card } from '../models/card';
 
 export interface DeckState {

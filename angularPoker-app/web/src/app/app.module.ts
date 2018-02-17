@@ -8,10 +8,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 
 import { AppComponent } from './app.component'
 import { CommonUiModule } from './common-ui/common-ui.module';
-import { CardComponentsModule } from './card-components/card-components.module'
 import { TestGameModule } from './test-game/test-game.module';
 import { reducers } from './store/reducers';
-import { effects } from './card-components/store/store';
+import { DeckModule } from './deck/deck.module';
 
 @NgModule({
   declarations: [
@@ -22,11 +21,11 @@ import { effects } from './card-components/store/store';
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot(effects),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({maxAge: 25}),
     CommonUiModule,
     TestGameModule,
-    CardComponentsModule
+    DeckModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

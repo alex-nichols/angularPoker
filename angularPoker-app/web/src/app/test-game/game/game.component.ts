@@ -3,10 +3,10 @@ import { Observable } from 'rxjs/Observable'
 import { Store, select } from '@ngrx/store'
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations'
 
-import { Card } from '../../card-components/models/card';
-import { DeckService } from '../../card-components/services/deck.service';
-import * as DeckReducers from '../../card-components/store/deck.reducer';
-import * as DeckActions from '../../card-components/store/deck.action';
+import { Card } from '../../deck/models/card';
+import { DeckService } from '../../deck/services/deck.service';
+import * as DeckReducers from '../../deck/reducers';
+import * as DeckActions from '../../deck/actions';
 // very cool list animation from: https://coursetro.com/posts/code/78/Creating-Stagger-Animations-in-Angular-4
 
 @Component({

@@ -1,5 +1,4 @@
-import * as DeckReducer from '../card-components/store/deck.reducer'
-import * as DeckStore from '../card-components/store/store'
+import * as DeckReducer from '../deck/reducers'
 import { ActionReducerMap } from '@ngrx/store';
 
 export interface AppState {

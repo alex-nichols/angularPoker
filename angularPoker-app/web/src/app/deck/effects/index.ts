@@ -9,7 +9,7 @@ import { Action } from '@ngrx/store'
 import { Actions, Effect } from '@ngrx/effects'
 import { of } from 'rxjs/observable/of'
 
-import * as DeckActions from './deck.action'
+import * as DeckActions from '../actions'
 import { DeckService } from '../services/deck.service';
 
 

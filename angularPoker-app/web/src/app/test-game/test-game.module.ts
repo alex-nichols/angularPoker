@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameComponent } from './game/game.component';
-import { CardComponentsModule } from '../card-components/card-components.module';
+import { DeckModule } from '../deck/deck.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    CardComponentsModule
+    DeckModule
   ],
   declarations: [
     GameComponent

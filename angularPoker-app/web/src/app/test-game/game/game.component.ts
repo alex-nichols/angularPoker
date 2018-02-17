@@ -3,12 +3,11 @@ import { Observable } from 'rxjs/Observable'
 import { Store } from '@ngrx/store'
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations'
 
-import { AppState } from '../../store/store'
-import * as DeckActions from '../../store/deck.action';
-import * as DeckReducer from '../../store/deck.reducer';
 import { Card } from '../../card-components/models/card';
 import { DeckService } from '../../card-components/services/deck.service';
-
+import * as DeckReducers from '../../card-components/store/deck.reducer';
+import * as DeckActions from '../../card-components/store/deck.action';
+import * as DeckStore from '../../card-components/store/store';
 // very cool list animation from: https://coursetro.com/posts/code/78/Creating-Stagger-Animations-in-Angular-4
 
 @Component({
@@ -38,8 +37,8 @@ export class GameComponent implements OnInit {
   public dealDelay = 75
 
   constructor(private _deck: DeckService,
-              private _store: Store<AppState>) {
-    this.loaded = _store.select(state => state.deck.loaded)
+              private _deckStore: Store<DeckReducers.DeckState>) {
+    this.loaded = _deckStore.select(state => state.loaded)
     // this was ill concieved. I should just let the renderer deal with this
     // this.dealtCards =  _store.select(DeckReducer.dealtCards)
     //                   .do(x => this.isDisabled = false)
@@ -50,17 +49,17 @@ export class GameComponent implements OnInit {
     //                     acc.push(value)
     //                     return acc
     //                   }, [])
-    this.dealtCards = _store.select(DeckReducer.dealtCards)
+    this.dealtCards = _deckStore.select(DeckStore.dealtCards)
                         .do(x => this.isDisabled = false)
   }
 
   public deal(count: number = 5) {
     this.isDisabled = true
-    this._store.dispatch(new DeckActions.RequestCards(count))
+    this._deckStore.dispatch(new DeckActions.RequestCards(count))
   }
 
   ngOnInit() {
-    this._store.dispatch(new DeckActions.Load())
+    this._deckStore.dispatch(new DeckActions.Load())
   }
 
 }

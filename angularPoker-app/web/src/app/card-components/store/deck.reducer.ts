@@ -1,12 +1,7 @@
-import { Action, createSelector } from '@ngrx/store'
-import { AppState } from './store'
+import { Action, createSelector, createFeatureSelector } from '@ngrx/store'
+import { DeckStore } from './store'
 import * as DeckActions from './deck.action'
-
-import { ArrayUtil } from '../util/array.util'
-
-// TODO: This needs to move to card-components
-import { Card } from '../card-components/models/card';
-
+import { Card } from '../models/card';
 
 export interface DeckState {
     deckIndex: number
@@ -46,5 +41,3 @@ export function reducer(state: DeckState = initialState, action: DeckActions.Act
         }
     }
 }
-
-export const dealtCards = (state: AppState) => state.deck.dealtCards

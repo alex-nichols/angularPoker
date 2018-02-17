@@ -10,7 +10,8 @@ import { Actions, Effect } from '@ngrx/effects'
 import { of } from 'rxjs/observable/of'
 
 import * as DeckActions from './deck.action'
-import { DeckService } from '../card-components/services/deck.service';
+import { DeckService } from '../services/deck.service';
+
 
 @Injectable()
 export class DeckEffects {

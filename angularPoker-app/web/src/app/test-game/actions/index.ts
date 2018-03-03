@@ -1,13 +1,13 @@
 import { Action } from '@ngrx/store'
-import { Card } from '../models/card'
+import { Card } from '../../deck/models/card';
 
 export const types = {
-    LOAD: 'DECK_LOAD',
-    LOADED: 'DECK_LOADED',
-    SHUFFLE: 'DECK_SHUFFLE',
-    SHUFFLE_COMPLETE: 'DECK_SHUFFLE_COMPLETE',
-    DEAL: 'DECK_DEAL',
-    REQUEST_CARDS: 'DECK_REQUEST_CARD'
+    LOAD: 'TEST_GAME_LOAD',
+    LOADED: 'TEST_GAME_LOADED',
+    SHUFFLE: 'TEST_GAME_SHUFFLE',
+    SHUFFLE_COMPLETE: 'TEST_GAME_SHUFFLE_COMPLETE',
+    DEAL: 'TEST_GAME_DEAL',
+    REQUEST_CARDS: 'TEST_GAME_REQUEST_CARD'
 }
 
 

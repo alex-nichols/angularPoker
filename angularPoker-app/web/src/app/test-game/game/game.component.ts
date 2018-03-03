@@ -5,8 +5,8 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
 
 import { Card } from '../../deck/models/card';
 import { DeckService } from '../../deck/services/deck.service';
-import * as DeckReducers from '../../deck/reducers';
-import * as DeckActions from '../../deck/actions';
+import * as DeckReducers from '../reducers';
+import * as DeckActions from '../actions';
 import { Title } from '@angular/platform-browser';
 // very cool list animation from: https://coursetro.com/posts/code/78/Creating-Stagger-Animations-in-Angular-4
 
@@ -36,7 +36,7 @@ export class GameComponent implements OnInit {
   public isDisabled: Boolean = false
   public dealDelay = 75
 
-  constructor(private _deckStore: Store<DeckReducers.DeckState>, private titleService: Title) {
+  constructor(private _deckStore: Store<DeckReducers.State>, private titleService: Title) {
     this.loaded = _deckStore.pipe(select(state => state.loaded))
     // this was ill concieved. I should just let the renderer deal with this
     // this.dealtCards =  _store.select(DeckReducer.dealtCards)

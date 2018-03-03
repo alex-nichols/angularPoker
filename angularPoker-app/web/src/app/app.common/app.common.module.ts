@@ -13,4 +13,4 @@ import { DebounceClickDirective } from './directives/debounce-click.directive';
     DebounceClickDirective
   ]
 })
-export class CommonUiModule { }
+export class AppCommonModule { }

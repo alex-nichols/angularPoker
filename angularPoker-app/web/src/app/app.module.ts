@@ -7,10 +7,12 @@ import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 
 import { AppComponent } from './app.component'
-import { CommonUiModule } from './common-ui/common-ui.module';
 import { TestGameModule } from './test-game/test-game.module';
 import { reducers } from './reducers';
 import { DeckModule } from './deck/deck.module';
+import { AppRoutingModule } from './app-routing.module';
+import { FiveCardDrawGameModule } from './five-card-draw-game/five-card-draw-game.module';
+import { AppCommonModule } from './app.common/app.common.module';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,11 @@ import { DeckModule } from './deck/deck.module';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({maxAge: 25}),
-    CommonUiModule,
+    AppCommonModule,
     TestGameModule,
-    DeckModule
+    FiveCardDrawGameModule,
+    DeckModule,
+    AppRoutingModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

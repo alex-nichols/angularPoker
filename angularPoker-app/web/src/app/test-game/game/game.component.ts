@@ -7,6 +7,7 @@ import { Card } from '../../deck/models/card';
 import { DeckService } from '../../deck/services/deck.service';
 import * as DeckReducers from '../../deck/reducers';
 import * as DeckActions from '../../deck/actions';
+import { Title } from '@angular/platform-browser';
 // very cool list animation from: https://coursetro.com/posts/code/78/Creating-Stagger-Animations-in-Angular-4
 
 @Component({
@@ -35,8 +36,7 @@ export class GameComponent implements OnInit {
   public isDisabled: Boolean = false
   public dealDelay = 75
 
-  constructor(private _deck: DeckService,
-              private _deckStore: Store<DeckReducers.DeckState>) {
+  constructor(private _deckStore: Store<DeckReducers.DeckState>, private titleService: Title) {
     this.loaded = _deckStore.pipe(select(state => state.loaded))
     // this was ill concieved. I should just let the renderer deal with this
     // this.dealtCards =  _store.select(DeckReducer.dealtCards)
@@ -50,13 +50,15 @@ export class GameComponent implements OnInit {
     //                   }, [])
     this.dealtCards = _deckStore.pipe(select(DeckReducers.dealtCards))
                         .do(x => this.isDisabled = false)
+
+    this.titleService.setTitle('Test App')
   }
 
   public deal(count: number = 5) {
     this.isDisabled = true
     this._deckStore.dispatch(new DeckActions.RequestCards(count))
   }
- 
+
   ngOnInit() {
     this._deckStore.dispatch(new DeckActions.Load())
   }

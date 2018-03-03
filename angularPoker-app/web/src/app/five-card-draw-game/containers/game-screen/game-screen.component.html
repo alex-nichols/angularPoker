@@ -1,0 +1,6 @@
+<button (click)='requestGame()'>Deal</button>
+<ul class="hand">
+  <li *ngFor="let card of (game$ | async).playerCards" class="card">
+    <app-card [frontImgUrl]='card.image' [backImgUrl]='"/assets/cards/back.png"' ></app-card>
+  </li>
+</ul> 

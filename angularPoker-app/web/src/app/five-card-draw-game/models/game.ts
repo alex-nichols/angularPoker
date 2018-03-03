@@ -1,7 +1,7 @@
-import { Card } from '../../deck/models/card';
+import { PlayerHand } from "./player.hand";
 
 export interface Game {
     wager: number,
-    playerCards: Card[],
+    playerHand: PlayerHand,
     playerId: string
 }

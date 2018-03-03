@@ -1,0 +1,8 @@
+<div class="card">
+    <app-card (click)="onCardClicked(card)" 
+              [frontImgUrl]="card.image"
+              [backImgUrl]="'/assets/cards/back.png'" 
+              ></app-card>
+    <div *ngIf="card.onHold" class="selectedCardIndicator">HOLD</div>    
+    <button (click)="onCardClicked(card)">Hold</button>
+</div>

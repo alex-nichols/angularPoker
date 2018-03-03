@@ -1,6 +1,6 @@
 import { Card } from '../../deck/models/card';
 import { GameActions, GameActionTypes, GameError } from '../actions';
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector, select } from '@ngrx/store';
 import { Game } from '../models/game';
 
 export interface State {
@@ -12,7 +12,7 @@ export interface State {
 
 const initialState: State = {
     game: {
-        playerCards: [],
+        playerHand: [],
         playerId: '',
         wager: 0
     },
@@ -43,7 +43,21 @@ export function reducer(state: State = initialState, action: GameActions): State
                 loaded: true
             }
         }
-        case GameActionTypes.DiscardCards: {
+        case GameActionTypes.ToggleCardSelection: {
+            return {
+                ...state,
+                game: {
+                    ...state.game,
+                    playerHand: state.game.playerHand.map(card => {
+                        if (card === action.payload) {
+                            card.onHold = !card.onHold
+                        }
+                        return card
+                    })
+                }
+            }
+        }
+        case GameActionTypes.RequestDiscard: {
             return {
                 ...state
             }

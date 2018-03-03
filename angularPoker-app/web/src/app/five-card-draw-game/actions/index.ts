@@ -6,7 +6,8 @@ export enum GameActionTypes {
     GameLoaded = '[Game] Game Recieved',
     GameError = '[Game] Game Request Error',
     GameUpdateRecieved = '[Game] Game Update Recieved',
-    DiscardCards = '[Game] Discard Cards'
+    RequestDiscard = '[Game] Request Discard',
+    ToggleCardSelection = '[Game] Toggle Card Selection',
 }
 
 export class RequestGame {
@@ -33,11 +34,24 @@ export class GameUpdateRecieved {
     constructor(public payload: Game) { }
 }
 
-export class DiscardCards {
-    readonly type = GameActionTypes.DiscardCards
+export class RequestDiscard {
+    readonly type = GameActionTypes.RequestDiscard
 
-    constructor(public payload: Card[]) { }
+    constructor() { }
 }
 
-export type GameActions = | RequestGame | GameLoaded | GameError | GameUpdateRecieved | DiscardCards
+export class ToggleCardSelection {
+    readonly type = GameActionTypes.ToggleCardSelection
+
+    constructor(public payload: Card) { }
+}
+
+
+
+export type GameActions = | RequestGame
+                          | GameLoaded
+                          | GameError
+                          | GameUpdateRecieved
+                          | ToggleCardSelection
+                          | RequestDiscard
  

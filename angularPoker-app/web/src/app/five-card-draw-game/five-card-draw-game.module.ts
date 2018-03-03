@@ -9,6 +9,9 @@ import { DeckModule } from '../deck/deck.module';
 import { FiveCardDrawGameRoutingModule } from './five-card-draw-game-routing.module';
 import { DeckService } from '../deck/services/deck.service';
 import { GameService } from './services/game';
+import { PlayerCardComponent } from './components/player-card/player-card.component';
+import { PlayerHandComponent } from './components/player-hand/player-hand.component';
+
 
 @NgModule({
   imports: [
@@ -22,7 +25,9 @@ import { GameService } from './services/game';
     GameScreenComponent
   ],
   declarations: [
-    GameScreenComponent
+    GameScreenComponent,
+    PlayerHandComponent,
+    PlayerCardComponent
   ],
   providers: [
     DeckService,

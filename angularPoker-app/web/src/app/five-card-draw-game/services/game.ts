@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { DeckService } from '../../deck/services/deck.service';
 import { Card } from '../../deck/models/card';
 import { mergeMap } from 'rxjs/operator/mergeMap';
-import { flatMap, map } from 'rxjs/operators';
+import { flatMap, mapTo, map, switchMap } from 'rxjs/operators';
 import { concat } from 'rxjs/operator/concat';
-import { switchMap } from 'rxjs/operator/switchMap';
+import { PlayerCard } from '../models/player.card';
 
 @Injectable()
 export class GameService {
@@ -14,9 +14,15 @@ export class GameService {
 
     constructor(private deckService: DeckService) { }
     public createGame(playerId: string, wager: number): Observable<Game> {
+        const temp: Game = { playerHand: [],
+                     wager,
+                     playerId }
 
         return this.deckService.LoadDeck()
                     .switchMap(deck => this.deckService.deal(5))
-                    .map(playerCards => ({playerCards, wager, playerId}) )
+                    .map<Card[], Game>((playerCards, idx) => {
+                            temp.playerHand = playerCards.map<PlayerCard>(card => ({...card, onHold: false}))
+                            return temp
+                    })
     }
 }

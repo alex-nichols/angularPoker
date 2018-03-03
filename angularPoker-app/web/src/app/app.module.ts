@@ -16,7 +16,7 @@ import { AppCommonModule } from './app.common/app.common.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

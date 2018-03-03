@@ -1,0 +1,5 @@
+<ul class="hand">
+  <li *ngFor="let card of playerHand" >
+      <app-player-card [card]='card' (cardClicked)='onCardClicked($event)' ></app-player-card>
+  </li>
+</ul>

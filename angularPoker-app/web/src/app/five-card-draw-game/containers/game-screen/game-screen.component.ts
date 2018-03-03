@@ -7,6 +7,7 @@ import { Card } from '../../../deck/models/card';
 import { Game } from '../../models/game';
 import { debug } from '../../../util/operators/debug';
 import { tap } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -18,9 +19,12 @@ export class GameScreenComponent implements OnInit {
   public state$: Observable<GameReducers.State>
   public game$: Observable<Game>
 
-  constructor( private gameStore: Store<GameReducers.State>) {
+  constructor( private gameStore: Store<GameReducers.State>,
+               private titleService: Title) {
     this.state$ = gameStore.pipe(select(GameReducers.selectFeature))
     this.game$ = gameStore.pipe(select(GameReducers.selectGame))
+
+    this.titleService.setTitle('Five Card Draw')
   }
 
   ngOnInit() {
@@ -29,6 +33,10 @@ export class GameScreenComponent implements OnInit {
 
   public requestGame() {
 
+  }
+
+  public onCardClicked(card: Card) {
+    this.gameStore.dispatch(new GameActions.ToggleCardSelection(card))
   }
 
 }

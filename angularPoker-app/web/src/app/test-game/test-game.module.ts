@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GameComponent } from './game/game.component';
 import { DeckModule } from '../deck/deck.module';
 import { TestGameRoutingModule } from './test-game-routing.module';
-import { DeckEffects } from './effects';
+import { GameEffects } from './effects';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import * as reducers from './reducers';
@@ -13,7 +13,7 @@ import * as reducers from './reducers';
     CommonModule,
     DeckModule,
     StoreModule.forFeature(reducers.featureName, reducers.reducer),
-    EffectsModule.forFeature([DeckEffects])
+    EffectsModule.forFeature([GameEffects])
   ],
   declarations: [
     GameComponent

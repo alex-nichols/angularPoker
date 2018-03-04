@@ -13,6 +13,7 @@ import { DeckModule } from './deck/deck.module';
 import { AppRoutingModule } from './app-routing.module';
 import { FiveCardDrawGameModule } from './five-card-draw-game/five-card-draw-game.module';
 import { AppCommonModule } from './app.common/app.common.module';
+import { AppSiteModule } from './app-site/app-site.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AppCommonModule } from './app.common/app.common.module';
     TestGameModule,
     FiveCardDrawGameModule,
     DeckModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppSiteModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

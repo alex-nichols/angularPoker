@@ -16,12 +16,10 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./game-screen.component.css']
 })
 export class GameScreenComponent implements OnInit {
-  public state$: Observable<GameReducers.State>
   public game$: Observable<Game>
 
-  constructor( private gameStore: Store<GameReducers.State>,
+  constructor( private gameStore: Store<Game>,
                private titleService: Title) {
-    this.state$ = gameStore.pipe(select(GameReducers.selectFeature))
     this.game$ = gameStore.pipe(select(GameReducers.selectGame))
 
     this.titleService.setTitle('Five Card Draw')

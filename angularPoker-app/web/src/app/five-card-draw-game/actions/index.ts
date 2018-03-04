@@ -1,10 +1,11 @@
 import { Game } from '../models/game';
 import { Card } from '../../deck/models/card';
+import { GameError } from '../models/game.error';
 
 export enum GameActionTypes {
     RequestGame = '[Game] Request Game',
     GameLoaded = '[Game] Game Recieved',
-    GameError = '[Game] Game Request Error',
+    GameErrorRecieved = '[Game] Game Error Recieved',
     GameUpdateRecieved = '[Game] Game Update Recieved',
     RequestDiscard = '[Game] Request Discard',
     ToggleCardSelection = '[Game] Toggle Card Selection',
@@ -22,8 +23,8 @@ export class GameLoaded {
     constructor(public payload: Game) { }
 }
 
-export class GameError {
-    readonly type = GameActionTypes.GameError
+export class GameErrorRecieved {
+    readonly type = GameActionTypes.GameErrorRecieved
 
     constructor(public payload: GameError) { }
 }
@@ -50,8 +51,7 @@ export class ToggleCardSelection {
 
 export type GameActions = | RequestGame
                           | GameLoaded
-                          | GameError
+                          | GameErrorRecieved
                           | GameUpdateRecieved
                           | ToggleCardSelection
                           | RequestDiscard
- 

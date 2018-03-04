@@ -1,6 +1,7 @@
-<button (click)="requestGame()">Deal</button>
-<ul class="hand">
-  <app-player-hand [playerHand]="(game$ | async).playerHand" 
-                   [playerId]="(game$ | async).playerId" 
-                   (cardClicked)="onCardClicked($event)" ></app-player-hand>
-</ul> 
+<div class="game">
+  <ul class="hand">
+    <app-player-hand [playerHand]="(game$ | async).playerHand" 
+                     [playerId]="(game$ | async).playerId" 
+                     (cardClicked)="onCardClicked($event)" ></app-player-hand>
+  </ul> 
+</div>

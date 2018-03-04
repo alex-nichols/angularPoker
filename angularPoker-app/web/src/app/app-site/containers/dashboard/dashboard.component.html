@@ -1,5 +1,9 @@
-<div class="fullscreen">
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div class="fullscreen dashboard">
+    <app-header></app-header>
+    
+    <div class="fullscreen game-wrapper">
+        <router-outlet class="game"></router-outlet>
+    </div>
+
+    <app-footer></app-footer>
 </div>

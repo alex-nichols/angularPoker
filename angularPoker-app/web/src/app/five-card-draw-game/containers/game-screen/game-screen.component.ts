@@ -13,7 +13,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-game-screen',
   templateUrl: './game-screen.component.html',
-  styleUrls: ['./game-screen.component.css']
+  styleUrls: ['./game-screen.component.scss']
 })
 export class GameScreenComponent implements OnInit {
   public game$: Observable<Game>

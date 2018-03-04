@@ -4,7 +4,7 @@ import { Card } from '../../../deck/models/card';
 @Component({
   selector: 'app-player-hand',
   templateUrl: './player-hand.component.html',
-  styleUrls: ['./player-hand.component.css']
+  styleUrls: ['./player-hand.component.scss']
 })
 export class PlayerHandComponent implements OnInit {
   @Input() playerHand: Card[]

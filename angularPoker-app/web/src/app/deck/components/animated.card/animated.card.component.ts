@@ -12,7 +12,7 @@ import { CardComponent } from '../card/card.component';
 @Component({
   selector: 'app-animated-card',
   templateUrl: './animated.card.component.html',
-  styleUrls: ['./animated.card.component.css'],
+  styleUrls: ['./animated.card.component.scss'],
   animations: [
     trigger('slideIn', [
       state('in', style({

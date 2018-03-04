@@ -19,7 +19,7 @@ import { PlayerHandComponent } from './components/player-hand/player-hand.compon
     CommonModule,
     StoreModule.forFeature(featureName, reducer),
     EffectsModule.forFeature([GameEffects]),
-  //  FiveCardDrawGameRoutingModule
+    FiveCardDrawGameRoutingModule
   ],
   exports: [
     GameScreenComponent

@@ -13,7 +13,8 @@ import * as reducers from './reducers';
     CommonModule,
     DeckModule,
     StoreModule.forFeature(reducers.featureName, reducers.reducer),
-    EffectsModule.forFeature([GameEffects])
+    EffectsModule.forFeature([GameEffects]),
+    TestGameRoutingModule
   ],
   declarations: [
     GameComponent

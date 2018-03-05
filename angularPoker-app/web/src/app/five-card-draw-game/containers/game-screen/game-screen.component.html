@@ -5,4 +5,7 @@
                      [playerId]="(game$ | async).playerId" 
                      (cardClicked)="onCardClicked($event)" ></app-player-hand>
   </ul> 
+  <div>
+    <button (click)="onDiscardClicked()">Discard</button>
+  </div>
 </div>

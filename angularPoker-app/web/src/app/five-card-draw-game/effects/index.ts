@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { GameService } from '../services/game';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
+import { Action, Store, select } from '@ngrx/store';
 
-import { RequestGame, GameActionTypes, GameLoaded } from '../actions';
-import { switchMap, map } from 'rxjs/operators';
+import * as GameReducers from '../reducers'
+import { RequestGame, GameActionTypes, GameLoaded, RequestDiscard, GameUpdateRecieved, } from '../actions';
+import { switchMap, map, withLatestFrom } from 'rxjs/operators';
 import { Game } from '../models/game';
 import { Observable } from 'rxjs/Observable';
 
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class GameEffects {
 
     @Effect()
-    loadGame$: Observable<Action> = this.actions$.pipe(
+    public loadGame$ = this.actions$.pipe(
         ofType<RequestGame>(GameActionTypes.RequestGame),
         switchMap(action => {
             return this.gameService
@@ -23,7 +24,20 @@ export class GameEffects {
         })
     )
 
+    @Effect()
+    public requestDiscard = this.actions$.pipe(
+        ofType<RequestDiscard>(GameActionTypes.RequestDiscard),
+        withLatestFrom(this.store$.pipe(select(GameReducers.selectGame))),
+        switchMap(([action, game]) => {
+            return this.gameService.discardCards(game).pipe(
+                        map((updateGame: Game) => new GameUpdateRecieved(updateGame))
+                    )
+        })
+
+    )
+
     constructor(private actions$: Actions,
+                private store$: Store<Game>,
                 private gameService: GameService) {
 
     }

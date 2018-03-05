@@ -26,4 +26,19 @@ export class GameService {
                             }
                     })
     }
+
+    public discardCards(game: Game): Observable<Game> {
+        const numberToRequest = game.playerHand.filter((card) => !card.onHold).length
+
+        return this.deckService.deal(numberToRequest)
+               .map<Card[], Game>((cards: Card[]) => {
+
+                    const newHand: PlayerCard[] = []
+                   for (const card of game.playerHand) {
+                       newHand.push(card.onHold ? card : {...cards.pop(), onHold: false})
+                   }
+
+                   return {...game, playerHand: newHand}
+               })
+    }
 }

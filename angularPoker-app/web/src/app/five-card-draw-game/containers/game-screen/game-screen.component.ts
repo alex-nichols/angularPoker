@@ -37,4 +37,8 @@ export class GameScreenComponent implements OnInit {
     this.gameStore.dispatch(new GameActions.ToggleCardSelection(card))
   }
 
+  public onDiscardClicked() {
+    this.gameStore.dispatch(new GameActions.RequestDiscard())
+  }
+
 }

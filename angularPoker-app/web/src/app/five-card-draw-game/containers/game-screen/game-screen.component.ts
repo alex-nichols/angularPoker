@@ -17,12 +17,14 @@ import { Title } from '@angular/platform-browser';
 })
 export class GameScreenComponent implements OnInit {
   public game$: Observable<Game>
+  public step$: Observable<GameSteps>
 
   public gameSteps = GameSteps
 
   constructor( private gameStore: Store<Game>,
                private titleService: Title) {
     this.game$ = gameStore.pipe(select(GameReducers.selectGame))
+    this.step$ = gameStore.pipe(select(GameReducers.selectStep))
 
     this.titleService.setTitle('Five Card Draw')
   }

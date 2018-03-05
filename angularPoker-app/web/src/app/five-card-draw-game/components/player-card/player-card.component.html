@@ -3,6 +3,8 @@
               [frontImgUrl]="card.image"
               [backImgUrl]="'/assets/cards/back.png'" 
               ></app-card>
-    <div *ngIf="card.onHold" class="selectedCardIndicator">HOLD</div>    
-    <button (click)="onCardClicked(card)">Hold</button>
+    <div *ngIf="card.onHold" 
+         (click)="onCardClicked(card)" 
+         class="selectedCardIndicator">HOLD</div>    
+    <button [disabled]="disabled" (click)="onCardClicked(card)">Hold</button>
 </div>

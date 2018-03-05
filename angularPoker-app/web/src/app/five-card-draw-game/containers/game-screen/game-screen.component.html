@@ -3,10 +3,11 @@
   <ul class="hand">
     <app-player-hand [playerHand]="(game$ | async).playerHand" 
                      [playerId]="(game$ | async).playerId" 
-                     (cardClicked)="onCardClicked($event)" ></app-player-hand>
+                     (cardClicked)="onCardClicked($event)"
+                     [disabled]="(step$ | async) === gameSteps.Complete" ></app-player-hand>
   </ul> 
   <div>
-    <button (click)="onDiscardClicked()" *ngIf="(game$ | async).step === gameSteps.Loaded">Discard</button>
-    <button (click)="onNewGameClicked()" *ngIf="(game$ | async).step === gameSteps.Complete">Deal</button>
+    <button (click)="onDiscardClicked()" *ngIf="(step$ | async) === gameSteps.Loaded">Discard</button>
+    <button (click)="onNewGameClicked()" *ngIf="(step$ | async) === gameSteps.Complete">Deal</button>
   </div>
 </div>

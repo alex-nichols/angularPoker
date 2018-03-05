@@ -9,6 +9,7 @@ import { Card } from '../../../deck/models/card';
 export class PlayerHandComponent implements OnInit {
   @Input() playerHand: Card[]
   @Input() playerId: string
+  @Input() disabled = false
 
   @Output() cardClicked = new EventEmitter<Card>()
 

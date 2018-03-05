@@ -57,3 +57,4 @@ export function reducer(state: Game = initialState, action: GameActions): Game {
 export const featureName = 'fiveCardComponent'
 export const selectFeature = createFeatureSelector<Game>(featureName)
 export const selectGame = createSelector(selectFeature, (state: Game) => state)
+export const selectStep = createSelector(selectGame, (game: Game) => game.step)

@@ -8,6 +8,7 @@ import { PlayerCard } from '../../models/player.card';
 })
 export class PlayerCardComponent implements OnInit {
   @Input() public card: PlayerCard
+  @Input() public disabled: boolean
   @Output() public cardClicked = new EventEmitter<PlayerCard>()
 
   constructor() { }
@@ -16,7 +17,9 @@ export class PlayerCardComponent implements OnInit {
   }
 
   private onCardClicked(card: PlayerCard): void {
-    this.cardClicked.emit(card)
+    if (!this.disabled) {
+      this.cardClicked.emit(card)
+    }
   }
 
 

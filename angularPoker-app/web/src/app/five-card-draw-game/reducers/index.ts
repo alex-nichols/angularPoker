@@ -1,15 +1,14 @@
 import { Card } from '../../deck/models/card';
 import { GameActions, GameActionTypes } from '../actions';
 import { createFeatureSelector, createSelector, select } from '@ngrx/store';
-import { Game } from '../models/game';
+import { Game, GameSteps } from '../models/game';
 
 const initialState: Game = {
         playerHand: [],
         playerId: '',
         wager: 0,
-        gameRequested: false,
-        loaded: false,
-        error: null
+        error: null,
+        step: GameSteps.New
 }
 
 export function reducer(state: Game = initialState, action: GameActions): Game {
@@ -18,7 +17,7 @@ export function reducer(state: Game = initialState, action: GameActions): Game {
         case GameActionTypes.RequestGame: {
             return {
                 ...state,
-                gameRequested: true,
+                step: GameSteps.Loading,
                 wager: action.payload.wager,
                 playerId: action.payload.playerName
             }
@@ -40,7 +39,8 @@ export function reducer(state: Game = initialState, action: GameActions): Game {
         }
         case GameActionTypes.RequestDiscard: {
             return {
-                ...state
+                ...state,
+                step: GameSteps.DiscardRequested
             }
         }
         case GameActionTypes.GameErrorRecieved: {

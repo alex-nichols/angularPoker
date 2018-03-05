@@ -4,7 +4,7 @@ import * as GameActions from '../../actions';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Card } from '../../../deck/models/card';
-import { Game } from '../../models/game';
+import { Game, GameSteps } from '../../models/game';
 import { debug } from '../../../util/operators/debug';
 import { tap } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
@@ -18,6 +18,8 @@ import { Title } from '@angular/platform-browser';
 export class GameScreenComponent implements OnInit {
   public game$: Observable<Game>
 
+  public gameSteps = GameSteps
+
   constructor( private gameStore: Store<Game>,
                private titleService: Title) {
     this.game$ = gameStore.pipe(select(GameReducers.selectGame))
@@ -29,16 +31,16 @@ export class GameScreenComponent implements OnInit {
     this.gameStore.dispatch(new GameActions.RequestGame({playerName: 'Alex', wager: 100}))
   }
 
-  public requestGame() {
-
-  }
-
   public onCardClicked(card: Card) {
     this.gameStore.dispatch(new GameActions.ToggleCardSelection(card))
   }
 
   public onDiscardClicked() {
     this.gameStore.dispatch(new GameActions.RequestDiscard())
+  }
+
+  public onNewGameClicked() {
+    this.gameStore.dispatch(new GameActions.RequestGame({playerName: 'Alex', wager: 100}))
   }
 
 }

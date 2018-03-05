@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Game } from '../models/game';
+import { Game, GameSteps } from '../models/game';
 import { Observable } from 'rxjs/Observable';
 import { DeckService } from '../../deck/services/deck.service';
 import { Card } from '../../deck/models/card';
@@ -20,8 +20,7 @@ export class GameService {
                                 wager,
                                 playerId,
                                 error: null,
-                                gameRequested: true,
-                                loaded: true,
+                                step: GameSteps.Loaded,
                                 playerHand: playerCards.map<PlayerCard>(card => ({...card, onHold: false}))
                             }
                     })
@@ -38,7 +37,7 @@ export class GameService {
                        newHand.push(card.onHold ? card : {...cards.pop(), onHold: false})
                    }
 
-                   return {...game, playerHand: newHand}
+                   return {...game, playerHand: newHand, step: GameSteps.Complete}
                })
     }
 }

@@ -6,6 +6,7 @@
                      (cardClicked)="onCardClicked($event)" ></app-player-hand>
   </ul> 
   <div>
-    <button (click)="onDiscardClicked()">Discard</button>
+    <button (click)="onDiscardClicked()" *ngIf="(game$ | async).step === gameSteps.Loaded">Discard</button>
+    <button (click)="onNewGameClicked()" *ngIf="(game$ | async).step === gameSteps.Complete">Deal</button>
   </div>
 </div>

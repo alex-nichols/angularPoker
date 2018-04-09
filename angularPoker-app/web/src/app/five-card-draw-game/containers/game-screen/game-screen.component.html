@@ -1,7 +1,7 @@
 <div class="game container">
   <h1 class="white-text center" >Five Card Draw</h1>
   <span class="white-text">{{(game$|async).handValue | handTypeName }}</span>
-  <app-paytable [paytable]=(game$|async).paytable></app-paytable>
+  <app-paytable [paytable]=(game$|async).paytable [handValue]="(game$ | async).handValue" [multiplier]="(game$ | async).wager"></app-paytable>
   <ul class="hand">
     <app-player-hand [playerHand]="(game$ | async).playerHand" 
                      [playerId]="(game$ | async).playerId" 

@@ -14,7 +14,7 @@ export enum HandTypes  {
 
 export const HandTypeStrings: { [id: number]: string; } = {
     [HandTypes.RoyalFlush]: 'Royal Flush',
-    [HandTypes.Straight]: 'Straight Flush',
+    [HandTypes.StraightFlush]: 'Straight Flush',
     [HandTypes.FourOfAKind]: 'Four Of A Kind',
     [HandTypes.FullHouse]: 'Full House',
     [HandTypes.Flush]: 'Flush',

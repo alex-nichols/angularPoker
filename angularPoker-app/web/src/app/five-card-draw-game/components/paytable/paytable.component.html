@@ -1,5 +1,6 @@
 <table>
-  <tr *ngFor='let hand of paytable.handMultipliers'>
-    <td>test</td>
+  <tr *ngFor="let handMultiplier of paytable.handMultipliers; let hand = index">
+    <td>{{hand | handTypeName}}</td>
+    <td class="payColumn" [ngClass]="{'selectedColumn': handValue === hand}" *ngFor="let credit of paytable.creditMultipliers" >{{credit * paytable.handMultipliers[hand]}}</td>
   </tr>
 </table>

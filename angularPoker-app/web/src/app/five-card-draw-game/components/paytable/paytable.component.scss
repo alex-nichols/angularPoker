@@ -1,0 +1,22 @@
+table {
+    background-color: black;
+    color: yellow;
+    font-weight: bolder;
+    border: 3px yellow solid;
+    width: 100%;
+}
+
+td.payColumn {
+    border-left: 3px yellow solid;
+    border-right: 3px yellow solid;
+    text-align: right; 
+    padding-right: 10px;
+}
+
+td.selectedHand {
+    color: white;
+}
+
+td.selectedColumn {
+    background-color: red;
+}

@@ -2,9 +2,14 @@ import { Card } from '../../deck/models/card';
 import { GameActions, GameActionTypes } from '../actions';
 import { createFeatureSelector, createSelector, select } from '@ngrx/store';
 import { Game, GameSteps } from '../models/game';
+import { HandTypes } from '../models/hand.types';
+import { DefaultPaytable } from '../models/paytable';
 
 const initialState: Game = {
+        gameId: '',
         playerHand: [],
+        paytable: DefaultPaytable,
+        handValue: HandTypes.highestCard,
         playerId: '',
         wager: 0,
         error: null,

@@ -11,6 +11,7 @@ import { reducers } from './reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppSiteModule } from './app-site/app-site.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { PaytableModule } from './paytable/paytable.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({maxAge: 25}),
     AppRoutingModule,
-    AppSiteModule
+    AppSiteModule,
+    PaytableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

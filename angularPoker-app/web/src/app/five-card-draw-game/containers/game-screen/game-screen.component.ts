@@ -8,7 +8,7 @@ import { Game, GameSteps } from '../../models/game';
 import { debug } from '../../../util/operators/debug';
 import { tap } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
-
+import { GameService } from '../../services/game';
 
 @Component({
   selector: 'app-game-screen',
@@ -21,10 +21,14 @@ export class GameScreenComponent implements OnInit {
 
   public gameSteps = GameSteps
 
+
   constructor( private gameStore: Store<Game>,
-               private titleService: Title) {
+               private titleService: Title,
+               private gameService: GameService) {
     this.game$ = gameStore.pipe(select(GameReducers.selectGame))
     this.step$ = gameStore.pipe(select(GameReducers.selectStep))
+
+    this.game$ = this.game$.pipe(tap(game => console.log('Current Hand is a:', game.handValue)))
 
     this.titleService.setTitle('Five Card Draw')
   }

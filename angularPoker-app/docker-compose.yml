@@ -1,9 +1,9 @@
 version: '3'
 services:
-  web:
+  aa-web:
     build: ./web
-    image: angular-cli
-    container_name: web
+    image: angular-poker/web:1.0
+    working_dir: /web
     volumes:
       - "./web:/web"
     ports:

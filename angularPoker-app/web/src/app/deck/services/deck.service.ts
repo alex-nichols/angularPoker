@@ -17,10 +17,13 @@ export class DeckService {
   }
 
   private logCardCombinations(): void {
-    const suits = Observable.range(0, 4)
-    const cards = Observable.range(0, 13)
-    suits.subscribe(suit => cards.subscribe(
-      rank => this.deck.push({suit, rank, image: `/assets/${rank + 1}_of_${Suit[suit]}`}) )
+    const suits$ = Observable.of(...Object.keys(Suit))
+    const cards$ = Observable.of(...Object.keys(Pip))
+
+    // const suits = Observable.range(0, 4)
+    // const cards = Observable.range(0, 13)
+    suits$.subscribe(suit => cards$.subscribe(
+      rank => this.deck.push({suit: Suit[suit], rank: Pip[rank], image: `/assets/${rank + 1}_of_${Suit[suit]}`}) )
     )
   }
 

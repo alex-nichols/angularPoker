@@ -12,6 +12,7 @@ import { GameService } from './services/game';
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { PlayerHandComponent } from './components/player-hand/player-hand.component';
 import { HandTypeNamePipe } from './directives/hand-type-name.pipe';
+import { PaytableComponent } from './components/paytable/paytable.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HandTypeNamePipe } from './directives/hand-type-name.pipe';
     GameScreenComponent,
     PlayerHandComponent,
     PlayerCardComponent,
-    HandTypeNamePipe
+    HandTypeNamePipe,
+    PaytableComponent
   ],
   providers: [
     DeckService,

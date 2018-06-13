@@ -15,3 +15,14 @@ RUN yarn global add @angular/cli@1.4.10
 # set yarn as default package manager for root
 USER root
 RUN ng set --global packageManager=yarn
+
+
+WORKDIR /web
+
+COPY package.json .
+RUN yarn install
+
+COPY . .
+
+# use the following command to copy the node_modules so that intellisense works:
+#   docker cp angularpoker-app_aa-web_1:/web/node_modules ./web/node_modules

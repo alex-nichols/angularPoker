@@ -1,7 +1,6 @@
 <div class="game container">
   <h1 class="white-text center" >Five Card Draw</h1>
-  <span class="white-text">{{(game$|async).handValue | handTypeName }}</span>
-  <app-paytable [paytable]=(game$|async).paytable [handValue]="(game$ | async).handValue" [multiplier]="(game$ | async).wager"></app-paytable>
+   <app-paytable [paytable]=(game$|async).paytable [handValue]="(game$ | async).handValue" [multiplier]="(game$ | async).wager"></app-paytable>
   <ul class="hand">
     <app-player-hand [playerHand]="(game$ | async).playerHand" 
                      [playerId]="(game$ | async).playerId" 
@@ -9,7 +8,10 @@
                      [disabled]="(step$ | async) === gameSteps.Complete" ></app-player-hand>
   </ul> 
   <div>
-    <button (click)="onDiscardClicked()" *ngIf="(step$ | async) === gameSteps.Loaded">Discard</button>
-    <button (click)="onNewGameClicked()" *ngIf="(step$ | async) === gameSteps.Complete">Deal</button>
+    <button (click)="onBetOne()">BET ONE</button>
+    <button (click)="onBetMax()">BET MAX</button>
+  
+    <button (click)="onDiscardClicked()" *ngIf="(step$ | async) === gameSteps.Loaded">DEAL</button>
+    <button (click)="onNewGameClicked()" *ngIf="(step$ | async) === gameSteps.Complete">DEAL</button>
   </div>
 </div>

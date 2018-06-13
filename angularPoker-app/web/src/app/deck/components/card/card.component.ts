@@ -31,4 +31,8 @@ export class CardComponent implements OnInit {
     this.isFaceUp = true
   }
 
+  public stopDrag($event: DragEvent) {
+    $event.preventDefault()
+  }
+
 }

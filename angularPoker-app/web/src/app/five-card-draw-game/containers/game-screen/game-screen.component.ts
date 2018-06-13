@@ -49,4 +49,12 @@ export class GameScreenComponent implements OnInit {
     this.gameStore.dispatch(new GameActions.RequestGame({playerName: 'Alex', wager: 100}))
   }
 
+  public onBetOne() {
+    ///this.gameStore.dispatch(new GameActions.)
+  }
+
+  public onBetMax() {
+    // TODO
+  }
+
 }

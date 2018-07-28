@@ -16,7 +16,6 @@ RUN yarn global add @angular/cli@1.4.10
 USER root
 RUN ng set --global packageManager=yarn
 
-
 WORKDIR /web
 
 COPY package.json .

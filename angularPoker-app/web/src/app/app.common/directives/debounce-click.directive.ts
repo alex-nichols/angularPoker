@@ -1,6 +1,8 @@
+
+import {debounceTime} from 'rxjs/operators';
 import { Directive, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { Subject } from 'rxjs/Subject'
-import 'rxjs/add/operator/debounceTime';
+import { Subject } from 'rxjs'
+
 
 @Directive({
   selector: '[appDebounceClick]'
@@ -12,7 +14,7 @@ export class DebounceClickDirective implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.clicks.debounceTime(500)
+    this.clicks.pipe(debounceTime(500))
       .subscribe(e => this.debounceClick.emit(e))
   }
 

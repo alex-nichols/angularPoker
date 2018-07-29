@@ -13,6 +13,7 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0-beta.2",
+    "@angular-devkit/build-angular": "^0.7.1",
     "@angular/animations": "6.1.0",
     "@angular/common": "6.1.0",
     "@angular/compiler": "6.1.0",
@@ -22,10 +23,10 @@
     "@angular/platform-browser": "6.1.0",
     "@angular/platform-browser-dynamic": "6.1.0",
     "@angular/router": "6.1.0",
-    "@ngrx/effects": "^5.1.0",
-    "@ngrx/store": "^5.1.0",
-    "@ngrx/store-devtools": "^5.1.0",
-    "angular-bootstrap-md": "^5.2.2",
+    "@ngrx/effects": "^6.0.1",
+    "@ngrx/store": "^6.0.1",
+    "@ngrx/store-devtools": "^6.0.1",
+    "angular-bootstrap-md": "^6.2.0",
     "chart.js": "^2.7.2",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
@@ -33,6 +34,7 @@
     "normalize.css": "^8.0.0",
     "poker-hands": "^1.0.2",
     "rxjs": "^6.2.2",
+    "rxjs-compat": "^6.2.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -42,7 +44,7 @@
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~9.4.6",
-    "codelyzer": "~4.1.0",
+    "codelyzer": "~4.4.2",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
@@ -53,7 +55,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.3.0",
     "ts-node": "~4.1.0",
-    "tslint": "~5.9.1",
+    "tslint": "~5.11.0",
     "typescript": "2.9.2"
   }
 }

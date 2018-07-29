@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as GameReducers from '../../reducers';
 import * as GameActions from '../../actions';
 import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Card } from '../../../deck/models/card';
 import { Game, GameSteps } from '../../models/game';
 import { debug } from '../../../util/operators/debug';

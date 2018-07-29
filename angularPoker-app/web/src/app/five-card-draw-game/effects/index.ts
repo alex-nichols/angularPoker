@@ -7,7 +7,7 @@ import * as GameReducers from '../reducers'
 import { RequestGame, GameActionTypes, GameLoaded, RequestDiscard, GameUpdateRecieved, } from '../actions';
 import { switchMap, map, withLatestFrom } from 'rxjs/operators';
 import { Game } from '../models/game';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class GameEffects {

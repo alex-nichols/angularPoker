@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Game, GameSteps } from '../models/game';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { DeckService } from '../../deck/services/deck.service';
 import { Card } from '../../deck/models/card';
-import { mergeMap } from 'rxjs/operator/mergeMap';
+
 import { flatMap, mapTo, map, switchMap } from 'rxjs/operators';
-import { concat } from 'rxjs/operator/concat';
+
 import { PlayerCard } from '../models/player.card';
 
 import * as pokerChecker from 'poker-hands';
@@ -25,9 +25,9 @@ export class GameService {
 
     public createGame(playerId: string, wager: number): Observable<Game> {
 
-        return this.deckService.LoadDeck()
-                    .switchMap(deck => this.deckService.deal(5))
-                    .map<Card[], Game>((playerCards, idx) => {
+        return this.deckService.LoadDeck().pipe(
+                    switchMap(deck => this.deckService.deal(5)),
+                    map<Card[], Game>((playerCards, idx) => {
 
                             const newCards = playerCards.map<PlayerCard>(card => ({...card, onHold: false}))
 
@@ -43,14 +43,14 @@ export class GameService {
                             }
 
                             return this.currentGame
-                    })
+                    }),)
     }
 
     public discardCards(game: Game): Observable<Game> {
         const numberToRequest = game.playerHand.filter((card) => !card.onHold).length
 
-        return this.deckService.deal(numberToRequest)
-               .map<Card[], Game>((cards: Card[]) => {
+        return this.deckService.deal(numberToRequest).pipe(
+               map<Card[], Game>((cards: Card[]) => {
 
                     const newHand: PlayerCard[] = []
                    for (const card of game.playerHand) {
@@ -59,7 +59,7 @@ export class GameService {
 
                    this.currentGame = game
                    return {...game, playerHand: newHand, handValue: this.determineHand(newHand), step: GameSteps.Complete}
-               })
+               }))
     }
 
     hashHand = (cards: Card[]) => {

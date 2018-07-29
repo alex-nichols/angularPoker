@@ -5,8 +5,8 @@ import { DashboardComponent } from './app-site/containers/dashboard/dashboard.co
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard/five-card', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent, children: [
-    { path: 'test-app', loadChildren: "\\app\\test-game\\test-game.module#TestGameModule" },
-    { path: 'five-card', loadChildren: "\\app\\five-card-draw-game\\five-card-draw-game.module#FiveCardDrawGameModule" },
+    { path: 'test-app', loadChildren: "./test-game/test-game.module#TestGameModule" },
+    { path: 'five-card', loadChildren: "./five-card-draw-game/five-card-draw-game.module#FiveCardDrawGameModule" },
   ]},
 ];
 

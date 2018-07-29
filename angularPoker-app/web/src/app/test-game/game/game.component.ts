@@ -1,5 +1,7 @@
+
+import {tap} from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core'
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs'
 import { Store, select } from '@ngrx/store'
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations'
 
@@ -48,8 +50,8 @@ export class GameComponent implements OnInit {
     //                     acc.push(value)
     //                     return acc
     //                   }, [])
-    this.dealtCards = _deckStore.pipe(select(DeckReducers.dealtCards))
-                        .do(x => this.isDisabled = false)
+    this.dealtCards = _deckStore.pipe(select(DeckReducers.dealtCards)).pipe(
+                        tap(x => this.isDisabled = false))
 
     this.titleService.setTitle('Test App')
   }

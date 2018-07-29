@@ -24,4 +24,4 @@ RUN yarn install
 COPY . .
 
 # use the following command to copy the node_modules so that intellisense works:
-#   docker cp angularpoker-app_aa-web_1:/web/node_modules ./web/node_modules
+#   docker cp angularpoker-app_aa-web_1:/web/node_modules ./web

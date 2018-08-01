@@ -6,12 +6,14 @@ import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { UserModule } from '../user/user.module';
 
 @NgModule({
   imports: [
     CommonModule,
     AppSiteRoutingModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    UserModule
   ],
   declarations: [DashboardComponent, HeaderComponent, FooterComponent]
 })

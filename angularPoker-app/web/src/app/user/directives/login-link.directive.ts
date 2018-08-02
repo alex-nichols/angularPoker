@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { State as UserState, selectIsLoggedIn } from '../store/user.reducer';
-import { LogInUser } from '../store/user.actions';
+import { State as UserState, selectIsLoggedIn } from '../store/reducers/user.reducer';
+import { LogInUser } from '../store/actions/user.actions';
 import { Observable } from 'rxjs';
 
 @Directive({

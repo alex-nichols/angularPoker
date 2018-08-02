@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { User } from 'firebase';
-import { AppUser } from '../models/app.user.model';
+import { UserProfile } from '../../models/user.profile.model';
 
 export enum UserActionTypes {
   LogInUser = '[User] LogIn User',
@@ -19,7 +19,7 @@ export class LogOutUser implements Action {
 export class UserLoggedIn implements Action {
   readonly type = UserActionTypes.UserLoggedIn
 
-  constructor(public user: AppUser) {}
+  constructor(public payload: { profile: UserProfile }) {}
 }
 
 export type UserActions = LogInUser

@@ -28,7 +28,7 @@ export class GameScreenComponent implements OnInit {
     this.game$ = gameStore.pipe(select(GameReducers.selectGame))
     this.step$ = gameStore.pipe(select(GameReducers.selectStep))
 
-    this.game$ = this.game$.pipe(tap(game => console.log('Current Hand is a:', game.handValue)))
+    // this.game$ = this.game$.pipe(tap(game => console.log('Current Hand is a:', game.handValue)))
 
     this.titleService.setTitle('Five Card Draw')
   }

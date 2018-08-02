@@ -12,5 +12,6 @@ export const environment = {
     projectId: "angularpoker-211901",
     storageBucket: "",
     messagingSenderId: "1068850871948"
-  }
+  },
+  enableDebugObservables: true
 };

@@ -1,6 +1,6 @@
 import { UserInfo } from "firebase";
 
-export class AppUser {
+export class UserProfile {
     displayName: string
     email: string
     emailVerified: boolean

@@ -1,6 +1,6 @@
 import { AccountActions, AccountActionTypes } from '../actions/account.actions';
 import { Account } from '../../models/account.model'
-
+import { produce } from 'immer'
 export interface State {
   account: Account
 }
@@ -13,27 +13,28 @@ export const initialState: State = {
 };
 
 export function reducer(state = initialState, action: AccountActions): State {
+  
   switch (action.type) {
 
     case AccountActionTypes.AccountLoaded:
       return {...state,
               account: action.payload.account
-            };
+            }
 
     case AccountActionTypes.LoadAccount:
-      return state;
+      return state
 
      case AccountActionTypes.ProcessTransaction:
-      return state;
+      return state
 
      case AccountActionTypes.TransactionProcessed:
-      return state;
+      return state
 
      case AccountActionTypes.TransactionError:
-      return state;
+      return state
 
 
     default:
-      return state;
+      return state
   }
 }
